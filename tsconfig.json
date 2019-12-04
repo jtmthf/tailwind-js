@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "jsx": "preserve",
+    "types": ["@emotion/core", "jest"],
+    "lib": ["dom", "es2019"]
+  },
+  "include": ["src/**/*", "@types/**/*"]
+}

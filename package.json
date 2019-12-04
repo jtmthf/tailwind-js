@@ -1,0 +1,95 @@
+{
+  "name": "tailwind-js",
+  "license": "MIT",
+  "scripts": {
+    "build": "pika build",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,json,md,mdx}\"",
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.0",
+    "react": "^16.8.0"
+  },
+  "dependencies": {
+    "csstype": "^2.6.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@emotion/babel-preset-css-prop": "^10.0.23",
+    "@emotion/core": "^10.0.22",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.8.1",
+    "@pika/plugin-build-types": "^0.8.1",
+    "@pika/plugin-build-web": "^0.8.1",
+    "@pika/plugin-standard-pkg": "^0.8.1",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-docs": "^5.2.8",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-storyshots": "^5.2.8",
+    "@storybook/addon-viewport": "^5.2.8",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
+    "@types/react": "^16.9.13",
+    "@types/react-test-renderer": "^16.9.1",
+    "@types/storybook__addon-storyshots": "^5.1.2",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-macros": "^2.7.1",
+    "babel-preset-react-app": "^9.0.2",
+    "core-js": "^3.4.4",
+    "emotion-theming": "^10.0.19",
+    "husky": ">=1",
+    "jest": "^24.9.0",
+    "jest-emotion": "^10.0.17",
+    "lint-staged": ">=8",
+    "prettier": "^1.19.1",
+    "preval.macro": "^4.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-render": "^1.1.2",
+    "react-test-renderer": "^16.12.0",
+    "require-context.macro": "^1.2.2",
+    "typescript": "^3.7.2"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "**/__tests__/**/*",
+            "**/__mocks__/**/*",
+            "**/stories/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,json,md,mdx}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

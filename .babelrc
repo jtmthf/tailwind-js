@@ -1,0 +1,36 @@
+{
+  "plugins": [
+    "macros",
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-proposal-nullish-coalescing-operator"
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": "defaults",
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "modules": false
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    "@emotion/babel-preset-css-prop"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": { "node": "current" },
+            "useBuiltIns": "usage",
+            "corejs": 3,
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    }
+  }
+}
