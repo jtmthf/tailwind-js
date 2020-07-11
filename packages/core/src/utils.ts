@@ -1,11 +1,13 @@
 import { Theme, Styles, CSSObject } from './types';
 
-export const apply = (...styles: Styles[]) => (theme: Theme): CSSObject =>
+export const apply = (...styles: (Styles | boolean | undefined | null)[]) => (
+  theme: Theme,
+): CSSObject =>
   Object.assign(
     {},
-    ...styles.map(style =>
-      typeof style === 'function' ? style(theme) : style,
-    ),
+    ...styles
+      .filter(Boolean)
+      .map(style => (typeof style === 'function' ? style(theme) : style)),
   );
 
 export const themeColor = (key: keyof Theme = 'colors') => (

@@ -12,7 +12,7 @@ const _borderColor = (name: string) => (
 export const borderColor = (name: string, variant?: string | number) =>
   _borderColor(name)(variant!);
 
-export const borderTransparent = _borderColor('transparent');
+export const borderTransparent = borderColor('transparent');
 export const borderBlack = _borderColor('black');
 export const borderWhite = _borderColor('white');
 export const borderGray = _borderColor('gray');

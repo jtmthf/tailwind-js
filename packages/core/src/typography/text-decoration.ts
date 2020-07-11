@@ -1,9 +1,8 @@
-import { TextDecorationProperty } from 'csstype';
-import css from '@emotion/css';
-import { TLength } from '../theme';
+import { CSSObject } from '../types';
 
-const textDecoration = (textDecoration: TextDecorationProperty<TLength>) =>
-  css({ textDecoration });
+const textDecoration = (textDecoration: CSSObject['textDecoration']) => ({
+  textDecoration,
+});
 
 export const underline = textDecoration('underline');
 export const lineThrough = textDecoration('line-through');

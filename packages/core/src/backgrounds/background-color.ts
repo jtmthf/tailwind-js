@@ -4,7 +4,7 @@ import { ThemedUtil } from '../types';
 const lookup = themeColor('backgroundColor');
 
 const backgroundColor = (name: string) => (
-  variant: string | number,
+  variant?: string | number,
 ): ThemedUtil => theme => ({
   backgroundColor: lookup(name, variant)(theme),
 });
@@ -12,7 +12,7 @@ const backgroundColor = (name: string) => (
 export const bgColor = (name: string, variant?: string | number) =>
   backgroundColor(name)(variant!);
 
-export const bgTransparent = backgroundColor('transparent');
+export const bgTransparent = bgColor('transparent');
 export const bgBlack = backgroundColor('black');
 export const bgWhite = backgroundColor('white');
 export const bgGray = backgroundColor('gray');
